@@ -1,0 +1,6 @@
+{
+  "name": "MISSION_SSC_CGL DIGI BOOKS",
+  "description": "Premium Digital Products, eBooks, formula PDFs, and curated preparation resources for SSC CGL Tier 1 & Tier 2 aspirants. Focus • Discipline • Consistency • Success.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

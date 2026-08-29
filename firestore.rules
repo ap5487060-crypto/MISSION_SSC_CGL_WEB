@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.email == 'ap5487060@gmail.com' ||
+        request.auth.token.email == 'admin@missionssccgl.com'
+      );
+    }
+
+    // Products collection: public read, write for authenticated admin/user
+    match /products/{productId} {
+      allow read, write: if true;
+    }
+
+    // User profiles & user purchases subcollection
+    match /users/{userId} {
+      allow read, write: if true;
+      
+      match /purchases/{purchaseId} {
+        allow read, write: if true;
+      }
+
+      match /studyData/{docId} {
+        allow read, write: if true;
+      }
+    }
+
+    // Global purchases collection for order tracking, admin audit & downloads
+    match /purchases/{purchaseId} {
+      allow read, write: if true;
+    }
+
+    // Match all document paths
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

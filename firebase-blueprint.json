@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "UserProfile": {
+      "collection": "users",
+      "fields": {
+        "uid": { "type": "string", "description": "User Auth UID" },
+        "email": { "type": "string", "description": "User Email Address" },
+        "displayName": { "type": "string", "description": "User Full Name" },
+        "photoURL": { "type": "string", "description": "User Avatar URL" },
+        "phoneNumber": { "type": "string", "description": "User Contact WhatsApp Number" },
+        "targetExam": { "type": "string", "description": "Target Exam (e.g. SSC CGL 2026, CHSL)" },
+        "targetYear": { "type": "string", "description": "Target Exam Year" },
+        "joinedAt": { "type": "timestamp", "description": "Account Creation Timestamp" },
+        "lastLoginAt": { "type": "timestamp", "description": "Last Active Timestamp" },
+        "totalPurchases": { "type": "number", "description": "Total Count of Purchases" }
+      }
+    },
+    "Purchase": {
+      "collection": "purchases",
+      "fields": {
+        "userId": { "type": "string", "description": "Purchaser User UID" },
+        "userEmail": { "type": "string", "description": "Purchaser Email" },
+        "userName": { "type": "string", "description": "Purchaser Name" },
+        "userPhone": { "type": "string", "description": "Purchaser Phone" },
+        "productId": { "type": "string", "description": "Product ID" },
+        "productTitle": { "type": "string", "description": "Product Title" },
+        "productType": { "type": "string", "description": "Product Type (ebooks/notes/handbook)" },
+        "amount": { "type": "number", "description": "Price paid in INR" },
+        "paymentMethod": { "type": "string", "description": "UPI / Instamojo / WhatsApp Direct" },
+        "transactionId": { "type": "string", "description": "UTR / Transaction ID / Reference" },
+        "paymentStatus": { "type": "string", "description": "completed / verified / free" },
+        "downloadUrl": { "type": "string", "description": "Direct PDF Download URL" },
+        "pdfUrl": { "type": "string", "description": "Online Viewer PDF URL" },
+        "createdAt": { "type": "timestamp", "description": "Purchase Date Timestamp" }
+      }
+    },
+    "Product": {
+      "collection": "products",
+      "fields": {
+        "title": { "type": "string", "description": "Product Title" },
+        "price": { "type": "string", "description": "Price in INR" },
+        "mrp": { "type": "string", "description": "MRP in INR" },
+        "type": { "type": "string", "description": "Type: books/ebooks/stationery" },
+        "downloadUrl": { "type": "string", "description": "Download link" },
+        "paymentUrl": { "type": "string", "description": "Payment checkout link" }
+      }
+    }
+  }
+}
